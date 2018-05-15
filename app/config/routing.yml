@@ -1,3 +1,7 @@
+emse_platform_application:
+    resource: "@EMSEPlatformBundle/Controller/ApplicationController.php"
+    type:     annotation
+
 emse_platform:
     resource: "@EMSEPlatformBundle/Resources/config/routing.yml"
     prefix:   /platform
