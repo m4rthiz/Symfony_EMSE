@@ -1,0 +1,53 @@
+{# src/EMSE/PlatformBundle/Resources/view/Advert/view.html.twig #}
+
+{% extends "EMSEPlatformBundle::layout.html.twig" %}
+
+{% block title %}
+  Lecture d'une annonce - {{ parent() }}
+{% endblock %}
+
+{% block emseplatform_body %}
+
+  <h2>{{ advert.title }}</h2>
+  <i>Par {{ advert.author }}, le {{ advert.date|date('d/m/Y') }}</i>
+
+  <div class="well">
+    {{ advert.content }}
+  </div>
+    {% if not advert.categories.empty %}
+      <p>
+        Cette annonce est parue dans les catégories suivantes :
+          {% for category in advert.categories %}
+              {{ category.name }}{% if not loop.last %}, {% endif %}
+          {% endfor %}
+      </p>
+    {% endif %}
+
+    {% for response in listApplications %}
+      <div class='row'>
+
+        <h5 class='text-light text-center bg-secondary col-12'>reponse n° {{ response.id }}</h5>
+        <h6 class='col-9'>{{ response.author }}</h6>
+        <p class='col-10'>{{ response.content }}</p>
+        <p class='col-2'>{{ response.date|date("m/d/Y") }}</p>
+
+      </div>
+    {% endfor %}
+
+
+  <p>
+    <a href="{{ path('emse_platform_home') }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Retour à la liste
+    </a>
+    <a href="{{ path('emse_platform_edit', {'id': advert.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i>
+      Modifier l'annonce
+    </a>
+    <a href="{{ path('emse_platform_delete', {'id': advert.id}) }}" class="btn btn-danger">
+      <i class="glyphicon glyphicon-trash"></i>
+      Supprimer l'annonce
+    </a>
+  </p>
+
+{% endblock %}

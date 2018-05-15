@@ -1,0 +1,3 @@
+emse_platform:
+    resource: "@EMSEPlatformBundle/Resources/config/routing.yml"
+    prefix:   /platform

@@ -1,0 +1,89 @@
+# src/EMSE/PlatformBundle/Resources/config/routing.yml
+# emse_platform_homepage:
+#     path:     /
+#     defaults: { _controller: EMSEPlatformBundle:Advert:index1 }
+
+
+emse_platform_home:
+    path:      /{page}
+    defaults:
+        _controller: EMSEPlatformBundle:Advert:index
+        page:        1
+    requirements:
+        page: \d*
+
+emse_platform_view:
+    path:      /advert/{id}
+    defaults:
+        _controller: EMSEPlatformBundle:Advert:view
+    requirements:
+        id: \d+
+
+emse_platform_add:
+    path:      /add
+    defaults:
+        _controller: EMSEPlatformBundle:Advert:add
+
+emse_platform_edit:
+    path:      /edit/{id}
+    defaults:
+        _controller: EMSEPlatformBundle:Advert:edit
+    requirements:
+        id: \d+
+
+emse_platform_delete:
+    path:      /delete/{id}
+    defaults:
+        _controller: EMSEPlatformBundle:Advert:delete
+    requirements:
+        id: \d+
+
+
+
+#emse_platform_view_slug:
+#    path:      /platform/{year}/{slug}.{format}
+#    defaults:
+#        _controller: EMSEPlatformBundle:Advert:viewSlug
+
+# emse_platform_view_slug:
+#     path:      /platform/{year}/{slug}.{format}
+#     defaults:
+#         _controller: EMSEPlatformBundle:Advert:viewSlug
+#         format:      html
+#     requirements:
+#         year:   \d{4}
+#         format: html|xml
+#
+# emse_platform_homepage:
+#     path:     /{page}
+#     defaults:
+#         _controller: EMSEPlatformBundle:Advert:index
+#         page:    1
+#     requirements:
+#         page: \d*
+#
+# emse_platform_view:
+#     path:      /advert/{id}
+#     defaults: { _controller: EMSEPlatformBundle:Advert:view }
+#     requirements:
+#         page: \d+
+#
+#
+# emse_platform_add:
+#     path:      /add
+#     defaults:
+#         _controller: EMSEPlatformBundle:Advert:add
+#
+# emse_platform_edit:
+#     path:      /edit/{id}
+#     defaults:
+#         _controller: EMSEPlatformBundle:Advert:edit
+#     requirements:
+#         id: \d+
+#
+# emse_platform_delete:
+#     path:      /delete/{id}
+#     defaults:
+#         _controller: EMSEPlatformBundle:Advert:delete
+#     requirements:
+#         id: \d+
