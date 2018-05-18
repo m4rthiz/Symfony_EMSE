@@ -67,4 +67,8 @@ class Image
   {
     return $this->alt;
   }
+
+    public function __toString() {
+       return $this->alt;
+  }
 }

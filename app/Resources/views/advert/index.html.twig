@@ -1,0 +1,47 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <h1>liste des annonces</h1>
+
+    <table class='table table-striped'>
+        <thead class='thead-dark'>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Titre</th>
+                <th>Auteur</th>
+                <th>Description</th>
+                <th>Published</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for advert in adverts %}
+            <tr>
+                <td><a href="{{ path('platform_advert_show', { 'id': advert.id }) }}">{{ advert.id }}</a></td>
+                <td>{% if advert.date %}{{ advert.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ advert.title }}</td>
+                <td>{{ advert.author }}</td>
+                <td>{{ advert.content }}</td>
+                <td>{% if advert.published %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('platform_advert_show', { 'id': advert.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('platform_advert_edit', { 'id': advert.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('platform_advert_new') }}">Create a new advert</a>
+        </li>
+    </ul>
+{% endblock %}

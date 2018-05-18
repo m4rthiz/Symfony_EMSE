@@ -1,20 +1,20 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block body %}
     <h1>Application</h1>
 
-    <table>
+    <table class='table table-striped'>
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>n°</th>
                 <td>{{ application.id }}</td>
             </tr>
             <tr>
-                <th>Author</th>
+                <th>Auteur</th>
                 <td>{{ application.author }}</td>
             </tr>
             <tr>
-                <th>Content</th>
+                <th>Contenu</th>
                 <td>{{ application.content }}</td>
             </tr>
             <tr>

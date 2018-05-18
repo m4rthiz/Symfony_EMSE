@@ -15,14 +15,14 @@ emse_platform_home:
 emse_platform_view:
     path:      /advert/{id}
     defaults:
-        _controller: EMSEPlatformBundle:Advert:view
+        _controller: EMSEPlatformBundle:Advert:show
     requirements:
         id: \d+
 
 emse_platform_add:
     path:      /add
     defaults:
-        _controller: EMSEPlatformBundle:Advert:add
+        _controller: EMSEPlatformBundle:Advert:new
 
 emse_platform_edit:
     path:      /edit/{id}

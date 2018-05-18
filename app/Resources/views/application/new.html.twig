@@ -1,16 +1,30 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block body %}
     <h1>Application creation</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+    {{ form_start(form, {'attr': {'class': 'form-group'}}) }}
+
+    {{ form_label(form.author, 'Auteur') }}
+    {{ form_widget(form.author, {'attr': {'class': 'form-control'}}) }}
+
+    {{ form_label(form.content, 'contenu') }}
+    {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
+
+    {{ form_label(form.date, 'Date') }}
+    {{ form_widget(form.date, {'attr': {'class': 'form-control'}}) }}
+
+    {{ form_label(form.advert, 'Annonce') }}
+    {{ form_widget(form.advert, {'attr': {'class': 'form-control'}}) }}
+
+
+        <input class='btn btn-primary' type="submit" value="Create" />
+
     {{ form_end(form) }}
 
     <ul>
         <li>
-            <a href="{{ path('platform_application_index') }}">Back to the list</a>
+            <a class='btn btn-secondary' href="{{ path('emse_platform_home') }}">retour à la liste d'annonce</a>
         </li>
     </ul>
 {% endblock %}

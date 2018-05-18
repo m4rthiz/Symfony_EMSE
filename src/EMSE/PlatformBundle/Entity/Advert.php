@@ -261,4 +261,9 @@ class Advert
     {
         return $this->categories->removeElement($category);
     }
+
+    public function __toString() {
+        return $this->title;
+    }
+
 }
